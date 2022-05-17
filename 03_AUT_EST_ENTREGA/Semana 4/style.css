@@ -40,7 +40,7 @@ a:hover {
 
 #infos div {
     margin-bottom: 0px;
-    border-bottom: 2px solid #667034;
+    
 }
 
 #infos h2 {
@@ -66,13 +66,13 @@ button img {
     flex-direction: row;
 }
 
-.hiddenExp {
+.hiddenExpContent{
     display: none;
 }
 
-.hiddenGra{
+.hiddenGraContent{
     display: none;
 }
-.hiddenId {
+.hiddenIdContent {
     display: none;
 }
