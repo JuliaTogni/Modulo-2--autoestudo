@@ -9,6 +9,9 @@ function ordenaçao(){
     });
 
     valores.sort((a , b) => a - b)
-    
+
+    let posicaoValorFoco = valores.indexOf(valorFoco.value);
+
     console.log(valores)
+    console.log(posicaoValorFoco+1)
 }
