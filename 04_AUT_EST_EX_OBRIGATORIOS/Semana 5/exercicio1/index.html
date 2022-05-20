@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade Semana 5</title>
+</head>
+<body>
+    <button>Aperte-me</button>
+    <p id="soma">numero 1 + numero 2 =</p>
+    <p id="subtração">numero 1 - numero 2 =</p>
+    <p id="multiplicação">numero 1 * numero 2 =</p>
+    <p id="divisão">numero 1 / numero 2 =</p>
+    <p id="resto">numero 1 % numero 2 =</p>
+    <script type="text/javascript">
+        var button = document.querySelector('button');
+        
+        button.onclick = function() {
+            var num1 = prompt('Escreva o primeiro número para a conta');
+            var num2 = prompt('Escreva o segundo número para a conta');
+            var resultado = document.getElementById("soma").innerHTML=(num1+=num2)
+            var resultado = document.getElementById("subtração").innerHTML= num1-num2
+            var resultado = document.getElementById("multiplicação").innerHTML= num1*num2
+            var resultado = document.getElementById("divisão").innerHTML= num1/num2
+            var resultado = document.getElementById("resto").innerHTML= num1%num2
+        }
+    </script> 
+</body>
+</html>
