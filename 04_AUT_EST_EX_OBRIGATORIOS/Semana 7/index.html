@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicios obrigatórios semana 7</title>
+</head>
+<body>
+    <h1>Exercicio 1</h1>
+    <button onclick="soma()">+1</button>
+    <input placeholder="Quantidade de um produto" id="quantidade">
+    <button onclick="subtracao()">-1</button>
+
+    <script type="text/javascript">
+
+        function soma(){
+            var input = Number(document.getElementById("quantidade").value)
+            var resultado = input + 1
+            console.log(resultado)
+
+            document.getElementById("quantidade").value = resultado
+        }
+
+        function subtracao() {
+            var input = Number(document.getElementById("quantidade").value)
+
+            var resultado = input - 1
+
+            document.getElementById("quantidade").value = resultado
+
+        }
+
+    </script>
+
+
+    <br> 
+
+    <h1>Exercício 2</h1>
+    <input type="text" placeholder="Digite a primeira palavra" id="botao1">
+    <input type="text" placeholder="Digite a segunda palavra" id="botao2">
+    <button onclick="trocar()">Trocar</button>
+
+    <script type="text/javascript">
+
+        function trocar(){
+            var botao1 = document.getElementById("botao1").value
+            var botao2 = document.getElementById("botao2").value
+
+
+            document.getElementById("botao1").value = botao2
+            document.getElementById("botao2").value = botao1
+        }
+
+    </script>
+
+    <br>
+
+    <h1>Exercício 4</h1>
+    <input type="text" placeholder="Quantidade de pessoas" id="info">
+    <select id="turno">
+        <option value="diurno">Diurno</option>
+        <option value="noturno">Noturno</option>
+    </select>
+    <button onclick="calcular()">Calcular os preços</button>
+    <div class="resultado">
+
+    </div>
+
+    <script type="text/javascript">
+
+        function calcular(){
+            var infoInput = getElementById("info").value
+            var turno = document.getElementById("turno").value
+            var preco 
+
+            var info = Number(infoInput)
+
+            var div = document.getElementsByClassName('resultado')
+
+            if (turno == "diurno"){
+                preco = 200 * info
+                
+                if (info > 50){
+                    preco = (200*info)*0,6
+                }    
+            }
+            else {
+                preco = 100 * info
+
+                if (info > 50){
+                    preco = (100*info)*0,8
+                }
+            }
+            const h3 = document.createElement("h3")
+            h3.innerHTML = `O seu preco ${preco}`
+            div.appendChild(h3)
+            alert(preco)
+        }
+    </script>
+
+    <br>
+
+    <h1>Exercício 5</h1>
+    <input type="text" placeholder="Quantidade de pessoas">
+    <button onclick="listar()">Gerar</button>
+    
+
+
+</body>
+</html>
