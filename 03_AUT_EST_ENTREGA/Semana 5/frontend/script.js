@@ -38,3 +38,18 @@ function showLanguages() {
 
 // Quickly show all divs that have the hidden style class
 $( ".hiddenIdContent" ).show( 1300 );
+
+//rota
+
+function informacoes() {
+    $.get('http://localhost:8222/informacoes', (res) =>{
+        console.log(res)
+
+        $('#nome').html(res.Nome)
+        $('#profissao').html(res.Profissao)
+        $('#nacionalidade').html(res.Nacionalidade)
+        $('#idade').html(res.Idade)
+        $('#estado_civil').html(res.Estado_civil)
+
+    })
+}
