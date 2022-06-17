@@ -13,7 +13,7 @@ header {
     top: 0px;
 
     text-align: center;
-    color: white;
+    color: rgb(255, 255, 255);
 }
 
 header p { 
@@ -73,6 +73,11 @@ button img {
 .hiddenGraContent{
     display: none;
 }
+
 .hiddenIdContent {
+    display: none;
+}
+
+.hiddenmsgContent{
     display: none;
 }

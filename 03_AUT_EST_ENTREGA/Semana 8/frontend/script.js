@@ -36,8 +36,23 @@ function showLanguages() {
     }
 }
 
+function showMensagem() {
+    let divId = $("#msgContent")
+
+    if (divId.attr("class") == "normal") {
+        divId.attr("class", "hiddenmsgContent")
+
+        
+    } else {
+        divId.attr("class", "normal")
+
+    }
+}
+
 // Quickly show all divs that have the hidden style class
 $( ".hiddenIdContent" ).show( 1300 );
+
+$( ".hiddenmsgContent" ).show( 1300 );
 
 //rota
 
@@ -51,5 +66,26 @@ function informacoes() {
         $('#idade').html(res.Idade)
         $('#estado_civil').html(res.Estado_civil)
 
+    })
+}
+
+//POST
+
+function sendMessage() {
+    let nome = document.querySelector("#nomeForms").value
+    let txt = document.querySelector("#texto").value
+
+    console.log(nome)
+    $.ajax({
+        url: 'http://localhost:${port}/contato', 
+        method: 'POST',
+        data: {
+            name: nome,
+            text: txt
+        },
+        success: function() {
+            alert('Mensagem enviada com sucesso!')
+        },
+        contentType: "application/json; charset=utf-8" 
     })
 }
