@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercicios obrigatórios semana 7</title>
 </head>
+
 <body>
     <h1>Exercicio 1</h1>
     <button onclick="soma()">+1</button>
@@ -14,7 +16,7 @@
 
     <script type="text/javascript">
 
-        function soma(){
+        function soma() {
             var input = Number(document.getElementById("quantidade").value)
             var resultado = input + 1
             console.log(resultado)
@@ -34,7 +36,7 @@
     </script>
 
 
-    <br> 
+    <br>
 
     <h1>Exercício 2</h1>
     <input type="text" placeholder="Digite a primeira palavra" id="botao1">
@@ -43,7 +45,7 @@
 
     <script type="text/javascript">
 
-        function trocar(){
+        function trocar() {
             var botao1 = document.getElementById("botao1").value
             var botao2 = document.getElementById("botao2").value
 
@@ -53,6 +55,16 @@
         }
 
     </script>
+
+    <br>
+
+    <h1>Exercício 3</h1>
+
+    <h3>Insira abaixo seu número de telefone celular no seguinte formato: (99)99999-9999</h3>
+    <form action="" method="get">
+        <input type="text" id="telephone" name="telephone" pattern="\(\d{2}\)\d{5}-\d{4}">
+        <button type="submit">Validar formato</button>
+    </form>
 
     <br>
 
@@ -69,27 +81,27 @@
 
     <script type="text/javascript">
 
-        function calcular(){
+        function calcular() {
             var infoInput = getElementById("info").value
             var turno = document.getElementById("turno").value
-            var preco 
+            var preco
 
             var info = Number(infoInput)
 
             var div = document.getElementsByClassName('resultado')
 
-            if (turno == "diurno"){
+            if (turno == "diurno") {
                 preco = 200 * info
-                
-                if (info > 50){
-                    preco = (200*info)*0,6
-                }    
+
+                if (info > 50) {
+                    preco = (200 * info) * 0, 6
+                }
             }
             else {
                 preco = 100 * info
 
-                if (info > 50){
-                    preco = (100*info)*0,8
+                if (info > 50) {
+                    preco = (100 * info) * 0, 8
                 }
             }
             const h3 = document.createElement("h3")
@@ -102,10 +114,86 @@
     <br>
 
     <h1>Exercício 5</h1>
-    <input type="number" id="ex5" placeholder="Quantidade de pessoas">
-    <button onclick="listar()">Gerar</button>
+    <input type="number" placeholder="Quantidade de alunos" id="numEstudantes"/>
+    <button onclick="inputs()">Calcular</button>
+    <br>
+    <div id="inputs"></div>
+    <div id="resultado"></div>
 
+    <script type="text/javascript">
+        function notasCalculo() {
+            var alunos = parseInt(document.getElementById("numEstudantes").value);
+            var meProva = 0;
+            var maProva = 0;
+            var meProjeto = 0;
+            var maProjeto = 0;
+            var notasProva = 0;
+            var notasProjeto = 0;
+            var mediaG = 0;
+            var medias = "";
+            for (let idx = 0; idx < alunos; idx++) {
+                var prova = parseInt(document.getElementById("prova-" + idx).value);
+                var projeto = parseInt(document.getElementById("projeto-" + idx).value);
+                notasProva += prova;
+                notasProjeto += projeto;
+                var average = (prova * 2 + projeto * 3) / 5;
+                mediaG += average;
+                medias += `
+        <span>
+        <h5>Aluno ${idx + 1}</h5>
+        <p>Média: ${average} </p>
+        </span>
+        `;
+                if (prova > maProva) {
+                    maProva = prova;
+                }
+                if (projeto > maProjeto) {
+                    maProjeto = projeto;
+                }
+                if (idx == 0) {
+                    meProva = prova;
+                    meProjeto = projeto;
+                } else {
+                    if (prova < meProva) meProva = prova;
+                    if (projeto < meProjeto) meProjeto = projeto;
+                }
+            }
+            document.getElementById("resultado").innerHTML = `
+      <br>
+      ${medias}
+      <br>
+      <h5>Média geral: ${mediaG / alunos}</h5>
+      <br>
+      <h5>Trabalhos</h5>
+      <h6>Média artiméticas das notas da prova: ${notasProva / alunos}</h6>
+      <h6>Maior nota da prova: ${maProjeto}</h6>
+      <h6>Menor da prova: ${meProjeto}</h6>
+      <br>
+      <h5>Provas</h5>
+      <h6>Média artiméticas das notas do trabalho: ${notasProjeto / alunos} </h6>
+      <h6>Maior nota do trabalho: ${maProva} </h6>
+      <h6>Menor da trabalho: ${meProva}</h6>
+      `;
+        }
+
+        function inputs() {
+            var inputs = "";
+            var alunos = parseInt(document.getElementById("numEstudantes").value);
+            for (let idx = 0; idx < alunos; idx++) {
+                inputs += `
+        <h5>Aluno ${idx + 1} </h5>
+          <div>
+          <input placeholder="Nota da prova" id="prova-${idx}"/>
+          <input  placeholder="Nota do trabalho"  id="projeto-${idx}"/>
+          </div>
+          <br />`;
+            }
+            document.getElementById("inputs").innerHTML =
+                inputs + "<a onclick='notasCalculo()' id='trade-button' href='#' >Calcular</a>";
+        }
+    </script>
 
 
 </body>
+
 </html>

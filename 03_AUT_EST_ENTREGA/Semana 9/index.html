@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entregas semana 9</title>
+</head>
+
+<body>
+    <h1>Exercicio 1</h1>
+    <input type="number" placeholder="Digite um número de 3 dígitos" id="number">
+    <button onclick="calcular()">Calcular</button>
+    <p id="resp">Aqui estará a sua resposta</p>
+
+    <script type="text/javascript">
+
+        function calcular() {
+            var num = document.getElementById("number").value;
+            var string = num.split("");
+
+            if (string[0] % 2 == 0) {
+                document.getElementById('resp').innerText = string[0] + "é par";
+            }
+            else {
+                document.getElementById('resp').innerText = string[0] + "é ímpar";
+            }
+        }
+
+    </script>
+
+
+    <br>
+
+    <h1>Exercício 2</h1>
+    <input type="number" placeholder="Digite a primeira palavra" id="number">
+    <button onclick="somar()">Somar</button>
+    <p id="resposta"></p>
+
+    <script type="text/javascript">
+
+        function somar() {
+            var num = document.getElementById('number').value;
+            var string = num.split("");
+            var soma = 0;
+            for (let i = 0; i < string.length; i++) {
+                sum += parseInt(string[i]);
+            }
+
+            document.getElementById('resposta').innerHTML = soma;
+        }
+
+    </script>
+
+    <br>
+
+    <h1>Exercício 3</h1>
+    <input type="text" placeholder="Digite o primeiro nome" id="nome1">
+    <input type="text" placeholder="Digite o segundo nome" id="nome2">
+    <input type="text" placeholder="Digite o terceiro nome" id="nome3">
+    <button onclick="Ordenar()">Ordenar</button>
+    <p id="resposta3"></p>
+
+    <script type="text/javascript">
+
+
+        function Ordenar() {
+            var nome1 = document.getElementById("nome1").value;
+            var nome2 = document.getElementById("nome2").value;
+            var nome3 = document.getElementById("nome3").value;
+            var nomes = ["", "", ""];
+
+            nomes = nomes.sort();
+            document.getElementById("resposta3").innerHTML = nomes;
+
+        }
+
+    </script>
+
+    <br>
+
+    <h1>Exercício 4</h1>
+    <legend>Sequência de Fibonacci</legend>
+    Limite Fibonacci: <input type="number" id="numFibonacci" min="1" value="1"><br>
+    <button id="buttonFibonacci" onClick="calcularFibonacci()">Exibir sequencia</button>
+
+    <script type="text/javascript">
+        function calcularFibonacci() {
+            var i = 2;
+            var n = parseInt(document.getElementById("numFibonacci").value, 10);
+            var fib = new Array();
+            fib[0] = 0;
+            fib[1] = 1;
+            if (fib < 1)
+                alert("Valores menores que 1 não são permitidos.");
+            else {
+                for (i = 2; i <= n; i++) {
+                    fib[i] = fib[i - 2] + fib[i - 1];
+                }
+                alert("Posição = " + n + ".\nValor = " + fib);
+            }
+        }
+    </script>
+
+
+
+    <br>
+
+    <h1>Exercício 5</h1>
+    <form name="numbers">
+
+            Número Inicial: <input type="text" name="primeiro" /> Número final: <input type="text" name="segundo" /> 
+            <input type="button" value="final" onclick="calcularPrimeiro()" />
+
+        </form>
+        <div id="saída">
+        </div>
+
+        <script type="text/javascript">
+    
+            function calcularPrimeiro(){
+    
+                    var firstNum = parseInt(document.numbers.primeiro.value);
+                    var secondNum = parseInt(document.numbers.segundo.value);
+                    var numPrimos = new Array();
+    
+    
+                    var num = firstNum;
+                    while(num<=secondNum)
+                    {
+                        if(primo(num)==true)
+                        {
+                            numPrimos[numPrimos.length] = num;
+                        }
+                        num = num+1;
+    
+                    }
+    
+                    if (numPrimos.length == 0){
+                       document.getElementById('saída').innerHTML = "Não há números primos na sequência";
+                    }
+    
+                    else {
+                        outputNumPrimo(numPrimos);
+                    }
+    
+            }
+    
+            function primo(num)
+            {
+                var flag = true;
+                for(var i=2; i<=Math.ceil(num/2); i++)
+                {
+                    if((num%i)==0)
+                    {
+                        flag = false;
+                        break;
+                    }
+                }
+                return flag;    
+            }
+    
+            function outputNumPrimo(primos){
+                var html = "<h2>Números primos: </h2>";
+                for (i=0;i<primos.length;i++){
+                        html += primos[i] + "<br/>";
+                    }
+                document.getElementById('saída').innerHTML = html;
+            }
+
+        </script>
+
+
+</body>
+
+</html>
